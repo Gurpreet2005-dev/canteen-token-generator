@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-950 text-gray-100 font-sans;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/5 backdrop-blur-lg border border-white/10;
+  }
+
+  .btn-primary {
+    @apply bg-brand-500 hover:bg-brand-600 text-white font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 active:scale-95 shadow-lg shadow-brand-500/20;
+  }
+
+  .btn-secondary {
+    @apply bg-white/10 hover:bg-white/20 text-white font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 active:scale-95;
+  }
+
+  .btn-danger {
+    @apply bg-red-500 hover:bg-red-600 text-white font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 active:scale-95;
+  }
+
+  .btn-success {
+    @apply bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 active:scale-95;
+  }
+
+  .input {
+    @apply bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition w-full;
+  }
+
+  .card {
+    @apply glass rounded-2xl p-5 shadow-xl;
+  }
+}
+
+.token-glow {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 20px rgba(249, 115, 22, 0.4); }
+  to   { box-shadow: 0 0 50px rgba(249, 115, 22, 0.9), 0 0 80px rgba(249, 115, 22, 0.3); }
+}
+
+.ready-glow {
+  animation: readyGlow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes readyGlow {
+  from { box-shadow: 0 0 20px rgba(16, 185, 129, 0.4); }
+  to   { box-shadow: 0 0 60px rgba(16, 185, 129, 0.9); }
+}
+
+.slide-up {
+  animation: slideUp 0.4s ease-out;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}

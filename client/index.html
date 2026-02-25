@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>College Canteen — Token System</title>
+    <meta name="description" content="Order food at your college canteen and get notified when ready" />
+    <style>
+        /* Instant dark bg — no white flash while JS loads */
+        html,
+        body {
+            background: #030712;
+            margin: 0;
+            padding: 0;
+        }
+
+        #root:empty::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .boot-spinner {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #030712;
+            z-index: 999;
+        }
+
+        .boot-spinner span {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(249, 115, 22, 0.2);
+            border-top-color: #f97316;
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Instant spinner shown before React mounts -->
+    <div class="boot-spinner" id="boot"><span></span></div>
+    <div id="root"></div>
+    <script>document.addEventListener('DOMContentLoaded', () => { const b = document.getElementById('boot'); if (b) b.style.display = 'none'; });</script>
+    <script type="module" src="/src/main.jsx"></script>
+</body>
+
+</html>
